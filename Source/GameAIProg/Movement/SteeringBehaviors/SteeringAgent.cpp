@@ -10,6 +10,16 @@ ASteeringAgent::ASteeringAgent()
 	PrimaryActorTick.bCanEverTick = true;
 }
 
+float ASteeringAgent::GetSlowRadius() const
+{
+	return m_SlowRadius;
+}
+
+float ASteeringAgent::GetTargetRadius() const
+{
+	return m_TargetRadius;
+}
+
 // Called when the game starts or when spawned
 void ASteeringAgent::BeginPlay()
 {
@@ -28,7 +38,7 @@ void ASteeringAgent::Tick(float DeltaTime)
 
 	DrawDebugLine(GetWorld(),
 		FVector{ GetPosition().X, GetPosition().Y, 1},
-		FVector{ GetPosition().X + GetActorForwardVector().X * 250, GetPosition().Y + GetActorForwardVector().Y * 250, 1 },
+		FVector{ GetPosition().X + GetActorForwardVector().X * d_ForwardLine, GetPosition().Y + GetActorForwardVector().Y * d_ForwardLine, 1 },
 		FColor::Blue);
 
 	if (SteeringBehavior)

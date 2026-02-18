@@ -52,6 +52,9 @@ public:
 	// Sets default values for this character's properties
 	ASteeringAgent();
 
+	float GetSlowRadius() const;
+	float GetTargetRadius() const;
+
 protected:
 
 	ISteeringBehavior* SteeringBehavior{nullptr}; // non-owning
@@ -61,6 +64,11 @@ protected:
 
 	// Called when the object is being destroyed
 	virtual void BeginDestroy() override;
+
+	float m_SlowRadius{ 500.f };
+	float m_TargetRadius{ 125.f };
+
+	const float d_ForwardLine{ 250.f };
 
 public:
 	// Called every frame

@@ -38,3 +38,9 @@ class Flee : public ISteeringBehavior
 public:
 	virtual SteeringOutput CalculateSteering(float DeltaT, ASteeringAgent& Agent) override;
 };
+
+class Arrive : public ISteeringBehavior
+{
+public:
+	virtual SteeringOutput CalculateSteering(float DeltaT, ASteeringAgent& Agent) override;
+};
